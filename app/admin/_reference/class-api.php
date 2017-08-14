@@ -68,8 +68,8 @@ class Api {
 	 *
 	 */
 	public function __construct() {
-		$this->key = USAT_API_KEY;
-		$this->secret = USAT_API_SECRET;
+		//$this->key = USAT_API_KEY;
+		//$this->secret = USAT_API_SECRET;
 		$this->api_url = "http://www.usatodaysportsimages.com/api/searchAPI/";
 		$this->directory = 'usat-images';
 

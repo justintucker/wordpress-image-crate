@@ -1,6 +1,8 @@
 /**
  * wp.media.view.ImageCrateSearch
  *
+ * imagecrate.default_search is rendered on the page by using wp_localize_script on image-crate.js.
+ *
  * @augments wp.media.view.Search
  */
 var ImageCrateSearch = wp.media.View.extend({
@@ -40,6 +42,8 @@ var ImageCrateSearch = wp.media.View.extend({
      * There's a bug in core where searches aren't de-bounced in the media library.
      * Normally, not a problem, but with external api calls or tons of image/users, ajax
      * calls could effect server performance. This fixes that for now.
+     *
+     * Todo: This is fixed in 4.8, but still needs tested with this plugin. To test, comment out deBounceSearch()
      */
     deBounceSearch: _.debounce(function (event) {
         if (event.target.value) {

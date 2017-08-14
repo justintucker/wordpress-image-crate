@@ -1,12 +1,14 @@
 /**
- * wp.media.model.Query
+ * wp.media.model.ProviderQuery
  *
  * A collection of attachments from the external data source.
  *
+ * This file is nearly one to one replica of the core query file. Exceptions are where options.data is extended to
+ * communicate with a custom method and where Query is updated to use the overridden core query.
+ *
  * @augments wp.media.model.Query
  */
-var StockPhotosQuery = wp.media.model.Query.extend({
-
+var ProviderQuery = wp.media.model.Query.extend({
         /**
          * Overrides wp.media.model.Query.sync
          * Overrides Backbone.Collection.sync
@@ -66,7 +68,7 @@ var StockPhotosQuery = wp.media.model.Query.extend({
              */
             return function (props, options) {
                 var someprops = props;
-                var Query = StockPhotosQuery,
+                var Query = ProviderQuery,
                     args = {},
                     query,
                     cache = !!props.cache || _.isUndefined(props.cache);
@@ -110,4 +112,4 @@ var StockPhotosQuery = wp.media.model.Query.extend({
         }())
     });
 
-module.exports = StockPhotosQuery;
+module.exports = ProviderQuery;
